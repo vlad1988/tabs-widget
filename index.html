@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Reactive</title>
+  <link rel="stylesheet" href="./node_modules\bootstrap\dist\css\bootstrap.min.css"/>
+  <script src="https://fb.me/react-with-addons-0.14.3.min.js"></script>
+  <script src="https://fb.me/react-dom-0.14.3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="./node_modules\bootstrap\dist\js\bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Tabs widget </h2>
+    <div id="result"></div>
+  </div>
+
+  <script type="text/babel">
+  var Tabs = React.createClass({
+    getInitialState: function () {
+      return {
+        username: ''
+      };
+    },
+    changeStatus: function () {
+    },
+    render: function () {
+      return(
+        <div id="content">
+        <ul id="tabs" className="nav nav-tabs" data-tabs="tabs">
+        <li className="active" onClick={this.changeStatus}><a href="#red" data-toggle="tab">Red</a></li>
+        <li><a href="#orange" data-toggle="tab">Orange</a></li>
+        </ul>
+        <div id="my-tab-content" className="tab-content">
+        <div className="tab-pane active" id="red">
+        <h4>Red</h4>
+        <p>{this.state.username}</p>
+        </div>
+        <div className="tab-pane" id="orange">
+        <h4>Orange</h4>
+        <p>{this.state.username}</p>
+        </div>
+        </div>
+        </div>
+      );
+    }
+  });
+
+    ReactDOM.render(<Tabs />, document.getElementById('result'));
+    </script>
+  </body>
+  </html>
